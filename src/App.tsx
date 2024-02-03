@@ -37,8 +37,11 @@ function App() {
     });
   }
 
-  function ResetClicks() {
+  function resetClicks() {
     setClicks(0);
+    fetch('http://localhost:8000/clicks', {
+      method: 'DELETE',
+    });
   }
 
   return (
@@ -46,7 +49,7 @@ function App() {
       <header className='App-header'>
         <RedButton onClick={increaseClicks}> "НЕ НАЖИМАТЬ!" </RedButton>
         <Counter> И всё же ты нажал {clicks} раз</Counter>
-        <BlueButton onClick={ResetClicks}> "Сбросить" </BlueButton>
+        <BlueButton onClick={resetClicks}> "Сбросить" </BlueButton>
       </header>
     </div>
   );
